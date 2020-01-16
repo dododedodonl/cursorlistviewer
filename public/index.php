@@ -37,11 +37,6 @@ require __DIR__.'/../vendor/autoload.php';
 
 $app = require_once __DIR__.'/../bootstrap/app.php';
 
-//Make the setup compatible with a 'public_html' dir as public for shared hosting
-$app->bind('path.public', function() {
-    return __DIR__;
-});
-
 /*
 |--------------------------------------------------------------------------
 | Run The Application

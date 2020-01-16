@@ -47,6 +47,7 @@ Route::get('/', function () {
         'permalink' => $feed->get_permalink(),
         'items'     => $items->toArray(),
         'feed'      => $feed,
+        'dark'      => ! request()->has('light'),
     );
 
     session([ 'last-seen-url' => ($items->first())['link'] ]);

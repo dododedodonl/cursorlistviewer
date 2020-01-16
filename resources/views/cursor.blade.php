@@ -7,23 +7,41 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <style type="text/css">
+	    .bg-main-dark {
+		    background-color: rgb(34, 34, 34) !important;
+	    }
+	    .bg-new-dark {
+		    background-color: rgb(71, 71, 71) !important;
+		    color: rgb(192, 192, 192) !important;
+	    }
+	    .bg-secondary-dark {
+		    background-color: rgb(51, 51, 51) !important;
+		    color: rgb(192, 192, 192) !important;
+	    }
+	    
+	    .text-muted-dark {
+		    color: rgb(192, 192, 192) !important;
+	    }
+    </style>
 
     <title>Cursor Listviewer</title>
   </head>
-  <body>
+  <body{!! $dark ? ' class="bg-main-dark"' : '' !!}>
     <div class="container">
-        <h1 class="mt-3 mb-5 display-4 text-center"><a href="{{ $permalink ?? '' }}" class="text-dark">Cursor Listviewer</a></h1>
+        <h1 class="mt-3 mb-5 display-4 text-center"><a href="{{ $permalink ?? '' }}" class="{{ $dark ? 'text-muted-dark' : 'text-dark' }}">Cursor Listviewer</a></h1>
 
         @foreach ($items as  $item)
         <div class="row mb-2">
             <div class="col-md-12">
-              <div class="card flex-md-row mb-4 box-shadow h-md-250{{$item['new'] ? ' bg-light' : '' }}">
+              <div class="card flex-md-row mb-4 box-shadow h-md-250{{$item['new'] ? ($dark ? ' bg-new-dark' : ' bg-light') : ($dark ? ' bg-secondary-dark' : '') }}">
                   {{-- <img class="card-img-left flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Thumbnail [200x250]" src="" style="width: 200px; height: 250px;"> --}}
 
                 <div class="card-body d-flex flex-column align-items-start">
                   {{-- <strong class="d-inline-block mb-2 text-success">Design</strong> --}}
                   <h3 class="mb-0">
-                    {!! $item['new'] ? '<span class="text-warning">&bull;</span> ' : '' !!}<a class="text-dark" href="{{ $item['link'] }}">{{ $item['title'] }}</a>
+                    {!! $item['new'] ? '<span class="text-warning">&bull;</span> ' : '' !!}<a class="{{ $dark ? 'text-muted-dark' : 'text-dark' }}" href="{{ $item['link'] }}">{{ $item['title'] }}</a>
                   </h3>
                   <div class="mb-3 text-muted">{{ $item['date'] }}</div>
                   <p class="card-text text-justify mb-3">{{ $item['content'] }}</p>
@@ -35,8 +53,8 @@
         </div>
         @endforeach
 
-        <footer>
-            The content is scraped from <a href="https://cursor.tue.nl/rss.xml">cursor.tue.nl</a>'s rss feed.
+        <footer class="text-muted-dark">
+            The content is scraped from <a href="https://cursor.tue.nl/rss.xml">cursor.tue.nl</a>'s rss feed. A cookie is used to create a php session, which is used to track last seen articles.
         </footer>
     </div>
 

@@ -19,7 +19,7 @@ Route::get('/', function () {
     $new = true;
 
     $items = collect($feed->get_items())
-        ->map(function($item) use ($lastSeen, &$new) {
+        ->map(function ($item) use ($lastSeen, &$new) {
             //Title
             $title = $item->get_title();
 
@@ -27,7 +27,9 @@ Route::get('/', function () {
             $link = $item->get_permalink();
 
             //Switch to false if entry is seen
-            if($link == $lastSeen) $new = false;
+            if ($link == $lastSeen) {
+                $new = false;
+            }
 
             //Get date and format it
             $pubdate = $item->get_item_tags('', 'pubDate')[0]['data'];

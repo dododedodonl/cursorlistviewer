@@ -1,0 +1,90 @@
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <atom:link href="https://www.cursor.tue.nl/nieuws/rss.xml" rel="self" type="application/rss+xml" />
+        <title>
+            Cursor - laatste nieuws
+        </title>
+        <link>
+        https://www.cursor.tue.nl/nieuws
+        </link>
+        <description>
+            Dé nieuwssite van de Technische Universiteit Eindhoven
+        </description>
+        <language>
+            nl
+        </language>
+        <generator>
+            TYPO3
+        </generator>
+        <lastBuildDate>
+            Thu, 22 Oct 2026 10:25:48 +0200
+        </lastBuildDate>
+
+                <item>
+
+    <title>
+        Bakkie 040 krijgt nieuw hart, maar blijft ontmoetingsplek
+    </title>
+    <guid>
+        https://www.cursor.tue.nl/nieuws/2026/oktober/week-4/bakkie-040
+    </guid>
+    <link>
+    https://www.cursor.tue.nl/nieuws/2026/oktober/week-4/bakkie-040
+    </link>
+    <pubDate>
+        Thu, 22 Oct 2026 07:40:00 +0200
+    </pubDate>
+    <description>
+        <![CDATA[
+            22 oktober 2026:<br/>
+            Bakkie 040 is weer open. Na het faillissement in september hebben Jesse &amp; Thijs de koffietent gekocht.
+        ]]>
+    </description>
+
+                </item>
+                <item>
+
+    <title>
+        Websites Cursor en TU/e weer in de lucht
+    </title>
+    <guid>
+        https://www.cursor.tue.nl/nieuws/2026/oktober/week-3/websites-weer-in-de-lucht
+    </guid>
+    <link>
+    https://www.cursor.tue.nl/nieuws/2026/oktober/week-3/websites-weer-in-de-lucht
+    </link>
+    <pubDate>
+        Wed, 21 Oct 2026 13:14:00 +0200
+    </pubDate>
+    <description>
+        <![CDATA[
+            21 oktober 2026:<br>
+            De websites van Cursor en de <b>TU/e</b> zijn weer online.
+        ]]>
+    </description>
+
+                </item>
+                <item>
+
+    <title>
+        Artikel zonder datum
+    </title>
+    <guid>
+        https://www.cursor.tue.nl/nieuws/2026/oktober/week-3/zonder-datum
+    </guid>
+    <link>
+    https://www.cursor.tue.nl/nieuws/2026/oktober/week-3/zonder-datum
+    </link>
+    <description>
+        <![CDATA[
+            Een samenvatting zonder datumprefix.
+        ]]>
+    </description>
+
+                </item>
+    </channel>
+</rss>

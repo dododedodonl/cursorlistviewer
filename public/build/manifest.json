@@ -1,0 +1,31 @@
+{
+  "_fonts-DYwIQXgi.css": {
+    "file": "assets/fonts-DYwIQXgi.css",
+    "src": "_fonts-DYwIQXgi.css"
+  },
+  "_nunito-400-normal-DKg4f3fz.woff": {
+    "file": "assets/nunito-400-normal-DKg4f3fz.woff",
+    "src": "_nunito-400-normal-DKg4f3fz.woff"
+  },
+  "_nunito-400-normal-r8SDr6Up.woff2": {
+    "file": "assets/nunito-400-normal-r8SDr6Up.woff2",
+    "src": "_nunito-400-normal-r8SDr6Up.woff2"
+  },
+  "_nunito-700-normal-Dort48En.woff2": {
+    "file": "assets/nunito-700-normal-Dort48En.woff2",
+    "src": "_nunito-700-normal-Dort48En.woff2"
+  },
+  "_nunito-700-normal-OcDqTBcA.woff": {
+    "file": "assets/nunito-700-normal-OcDqTBcA.woff",
+    "src": "_nunito-700-normal-OcDqTBcA.woff"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-Bl9h6_Yl.css",
+    "name": "app",
+    "names": [
+      "app.css"
+    ],
+    "src": "resources/css/app.css",
+    "isEntry": true
+  }
+}

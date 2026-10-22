@@ -1,50 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
+<head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- CSRF Token -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    {{-- <!-- Scripts -->
-    <script src="{{ mix('js/app.js') }}" defer></script>  --}}
-
-    <!-- Style -->
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-
     <title>Cursor Listviewer</title>
-  </head>
-  <body{!! $dark ? ' class="bg-main-dark"' : '' !!}>
-    <div class="container">
-        <h1 class="mt-3 mb-5 display-4 text-center"><a href="{{ $permalink ?? '' }}" class="{{ $dark ? 'text-muted-dark' : 'text-dark' }}">Cursor Listviewer</a></h1>
 
-        @foreach ($items as  $item)
-        <div class="row mb-2">
-            <div class="col-md-12">
-              <div class="card flex-md-row mb-4 box-shadow h-md-250{{$item['new'] ? ($dark ? ' bg-new-dark' : ' bg-light') : ($dark ? ' bg-secondary-dark' : '') }}">
-                  {{-- <img class="card-img-left flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Thumbnail [200x250]" src="" style="width: 200px; height: 250px;"> --}}
+    @vite('resources/css/app.css')
+</head>
+<body class="min-h-screen font-sans text-[0.9rem] leading-relaxed {{ $dark ? 'bg-main-dark text-muted-dark' : 'bg-gray-50 text-gray-900' }}">
+    <div class="mx-auto max-w-5xl px-4">
+        <h1 class="mt-4 mb-10 text-center text-5xl font-light">
+            <a href="{{ $permalink ?? '' }}" class="{{ $dark ? 'text-muted-dark' : 'text-gray-900' }} hover:underline">Cursor Listviewer</a>
+        </h1>
 
-                <div class="card-body d-flex flex-column align-items-start">
-                  {{-- <strong class="d-inline-block mb-2 text-success">Design</strong> --}}
-                  <h3 class="mb-0">
-                    {!! $item['new'] ? '<span class="text-warning">&bull;</span> ' : '' !!}<a class="{{ $dark ? 'text-muted-dark' : 'text-dark' }}" href="{{ $item['link'] }}">{{ $item['title'] }}</a>
-                  </h3>
-                  <div class="mb-3 text-muted">{{ $item['date'] }}</div>
-                  <p class="card-text text-justify mb-3">{{ $item['content'] }}</p>
-
-                  <a href="{{ $item['link'] }}">Continue reading</a>
-                </div>
-                 </div>
+        @if ($unavailable)
+            <div class="mb-6 rounded-md border p-4 text-center {{ $dark ? 'border-yellow-400/60 bg-card-dark' : 'border-yellow-400 bg-yellow-50' }}">
+                The feed is currently unavailable. Please try again later.
             </div>
-        </div>
+        @endif
+
+        @foreach ($items as $entry)
+            @php($item = $entry['item'])
+            <article class="mb-4 rounded-lg p-6 shadow-md {{ $entry['new'] ? ($dark ? 'bg-new-dark' : 'bg-gray-100') : ($dark ? 'bg-card-dark' : 'bg-white') }}">
+                <h3 class="text-2xl font-medium">
+                    @if ($entry['new'])<span class="text-yellow-400">&bull;</span> @endif<a class="{{ $dark ? 'text-muted-dark' : 'text-gray-900' }} hover:underline" href="{{ $item->link }}">{{ $item->title }}</a>
+                </h3>
+                @if ($item->publishedAt)
+                    <div class="mb-3 {{ $dark ? 'text-muted-dark/70' : 'text-gray-500' }}">{{ $item->publishedAt->format('l jS \of F Y, H:i:s') }}</div>
+                @endif
+                <p class="mb-3 text-justify">{{ $item->content }}</p>
+
+                <a href="{{ $item->link }}" class="text-blue-500 hover:underline">Continue reading</a>
+            </article>
         @endforeach
 
-        <footer class="text-muted-dark">
-            The content is scraped from <a href="https://cursor.tue.nl/rss.xml">cursor.tue.nl</a>'s rss feed. A cookie is used to create a php session, which is used to track last seen articles.
+        <footer class="my-8 text-sm {{ $dark ? 'text-muted-dark' : 'text-gray-500' }}">
+            The content is scraped from <a href="{{ config('feeds.url') }}" class="underline">cursor.tue.nl</a>'s rss feed. A cookie is used to create a php session, which is used to track last seen articles.
         </footer>
     </div>
-
-    </body>
+</body>
 </html>

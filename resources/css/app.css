@@ -1,0 +1,14 @@
+@import 'tailwindcss';
+
+@source '../views';
+
+@theme {
+    --font-sans: 'Nunito', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+
+    /* Dark theme palette, carried over from the original Bootstrap build. */
+    --color-main-dark: #222222;
+    --color-card-dark: #333333;
+    --color-new-dark: #474747;
+    --color-muted-dark: #c0c0c0;
+}
